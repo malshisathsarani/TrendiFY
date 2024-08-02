@@ -5,11 +5,11 @@ import './App.css';
 
 // Dummy product data
 const initialProducts = [
-  { id: 1, name: 'Product 1', description: 'Description of Product 1', price: '$10', imageUrl: 'assets/img2.jpg' },
-  { id: 2, name: 'Product 2', description: 'Description of Product 2', price: '$20', imageUrl: 'assets/img2.jpg' },
-  { id: 3, name: 'Product 3', description: 'Description of Product 3', price: '$10', imageUrl: 'assets/img3.jpg' },
-  { id: 4, name: 'Product 4', description: 'Description of Product 4', price: '$20', imageUrl: 'assets/img2.jpg' },
-  { id: 5, name: 'Product 5', description: 'Description of Product 5', price: '$10', imageUrl: 'assets/img3.jpg' },
+  { id: 1, name: 'Product 1', description: 'Description of Product 1', price: '$10', imageUrl: '/assets/img2.jpg' },
+  { id: 2, name: 'Product 2', description: 'Description of Product 2', price: '$20', imageUrl: '/assets/img2.jpg' },
+  { id: 3, name: 'Product 3', description: 'Description of Product 3', price: '$10', imageUrl: '/assets/img3.jpg' },
+  { id: 4, name: 'Product 4', description: 'Description of Product 4', price: '$20', imageUrl: '/assets/img2.jpg' },
+  { id: 5, name: 'Product 5', description: 'Description of Product 5', price: '$10', imageUrl: '/assets/img3.jpg' },
   // Add more products as needed
 ];
 
