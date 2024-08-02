@@ -1,0 +1,30 @@
+/* LandingPage.css */
+.landing-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    height: calc(100vh - 4rem); 
+  }
+  
+  .landing-text {
+    flex: 1;
+    text-align: left;
+    font-family: 'Verdana', sans-serif; 
+    font-size: 15px; 
+    font-weight: 400;
+  }
+  
+  
+  .landing-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .landing-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  

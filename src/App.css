@@ -1,0 +1,85 @@
+/* App.css */
+.App {
+  text-align: center;
+}
+
+.navbar {
+  background-color: #4E45E6;
+  padding: 1rem;
+  }
+
+.navbar-brand {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.navbar-links {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar-links li {
+  display: inline;
+  margin: 0 1rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.content {
+  padding: 2rem;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-item h2 {
+  margin-top: 0;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.form-section {
+  margin-top: 2rem;
+}
+
+.product-form input,
+.product-form button {
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product-form button {
+  background-color:  #4E45E6;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.product-form button:hover {
+  background-color: #6B64D8;
+}
