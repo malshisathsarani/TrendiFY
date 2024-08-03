@@ -38,6 +38,7 @@
 }
 
 .product-item {
+  position: relative;
   border: 1px solid #ddd;
   padding: 1rem;
   border-radius: 5px;
@@ -59,6 +60,18 @@
   height: 250px; /* Adjust this value as needed */
   object-fit: cover; /* This ensures the image covers the container without stretching */
   border-radius: 5px;
+}
+
+.delete-icon {
+  position:fixed;
+  top: 10px;
+  right: 10px;
+  display: none;
+  color: red;
+}
+
+.product-item:hover .delete-icon {
+  display: block;
 }
 
 .form-section {

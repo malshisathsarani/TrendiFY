@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Route, BrowserRouter as Router, Routes, useNavigate, useParams } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import LandingPage from './LandingPage';
+import ProductList from './ProductList';
+import ProductDetail from './ProductDetailPage';
 import './App.css';
 
 // Dummy product data
@@ -36,14 +38,19 @@ function App() {
     setImageUrl('');
   };
 
+  const deleteProduct = (id) => {
+    const updatedProducts = products.filter(product => product.id !== id);
+    setProducts(updatedProducts);
+  };
+
   return (
     <Router>
       <div className="App">
         <NavBar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/products" element={<ProductList products={products} addProduct={addProduct} name={name} setName={setName} description={description} setDescription={setDescription} price={price} setPrice={setPrice} imageUrl={imageUrl} setImageUrl={setImageUrl} />} />
-          <Route path="/product/:id" element={<ProductDetail products={products} />} />
+          <Route path="/products" element={<ProductList products={products} addProduct={addProduct} name={name} setName={setName} description={description} setDescription={setDescription} price={price} setPrice={setPrice} imageUrl={imageUrl} setImageUrl={setImageUrl} deleteProduct={deleteProduct} />} />
+          <Route path="/product/:id" element={<ProductDetail products={products} deleteProduct={deleteProduct} />} />
         </Routes>
       </div>
     </Router>
@@ -60,81 +67,6 @@ function NavBar() {
         <li><a href="#about">About</a></li>
       </ul>
     </nav>
-  );
-}
-
-function ProductList({ products, addProduct, name, setName, description, setDescription, price, setPrice, imageUrl, setImageUrl }) {
-  const navigate = useNavigate();
-
-  return (
-    <div className="content">
-      <h1>Product List</h1>
-      <ul className="product-list">
-        {products.map((product) => (
-          <li
-            key={product.id}
-            className="product-item"
-            onClick={() => navigate(`/product/${product.id}`)}
-          >
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-            {product.imageUrl && <img src={product.imageUrl} alt={product.name} className="product-image" />}
-          </li>
-        ))}
-      </ul>
-      <div className="form-section">
-        <h2>Add a New Product</h2>
-        <form onSubmit={addProduct} className="product-form">
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Name"
-            required
-          />
-          <input
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Description"
-            required
-          />
-          <input
-            type="text"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            placeholder="Price"
-            required
-          />
-          <input
-            type="text"
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
-            placeholder="Image URL"
-          />
-          <button type="submit">Add Product</button>
-        </form>
-      </div>
-    </div>
-  );
-}
-
-function ProductDetail({ products }) {
-  const { id } = useParams();
-  const product = products.find((p) => p.id === parseInt(id));
-
-  if (!product) {
-    return <div>Product not found!</div>;
-  }
-
-  return (
-    <div className="product-detail">
-      <h1>{product.name}</h1>
-      <p>{product.description}</p>
-      <p>{product.price}</p>
-      {product.imageUrl && <img src={product.imageUrl} alt={product.name} className="product-image" />}
-    </div>
   );
 }
 

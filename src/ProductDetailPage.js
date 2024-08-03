@@ -1,3 +1,6 @@
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+
 function ProductDetail({ products }) {
   const { id } = useParams();
   const product = products.find((p) => p.id === parseInt(id));
@@ -15,3 +18,5 @@ function ProductDetail({ products }) {
     </div>
   );
 }
+
+export default ProductDetail;
